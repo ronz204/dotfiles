@@ -1,0 +1,25 @@
+# Backups created by install scripts
+*.bak
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs and temp
+*.log
+*.tmp
+
+# Secrets / local overrides
+.env
+*.local
+*.secret
+
+# Claude Code local settings
+.claude/settings.local.json
