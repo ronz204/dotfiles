@@ -80,8 +80,21 @@ It links these files:
 Good to know:
 
 - It is safe to run again. Links that are already correct are left alone and print `ok`.
-- If a real file already exists at a target, it is renamed to `<name>.<timestamp>.bak` instead of being overwritten. Delete the backups when you no longer need them.
+- If a real file already exists at a target, it is renamed to `<name>.<timestamp>.bak` instead of being overwritten. Only the 2 newest backups of each file are kept, so the oldest one is deleted when a third appears.
 - If something fails (for example symlinks are not allowed), the script stops with an error instead of continuing.
+
+## Restoring a backup
+
+To go back to a file the installer backed up, run:
+
+```powershell
+pwsh $HOME\src\dotfiles\windows\restore.ps1
+```
+
+For each target it lists the existing backups, newest first, and asks for a number. Press Enter to skip a target.
+
+- The backup is copied, not moved, so it stays available.
+- The restored file replaces the current link and is a regular file, not a symlink. Run `install.ps1` again to link the repo version back (the restored file is then backed up too).
 
 ## 5. Check it works
 
@@ -96,6 +109,7 @@ Close every terminal and open WezTerm. You should see:
 | Path | What it is |
 | --- | --- |
 | `windows\install.ps1` | Creates the symlinks |
+| `windows\restore.ps1` | Restores a backup made by the installer |
 | `windows\powershell\profile.ps1` | Loads oh-my-posh and the aliases |
 | `windows\powershell\aliases.ps1` | `ls`, `tree`, `cat`, `..` and `...` |
 | `windows\prompts\omp.json` | oh-my-posh prompt theme |
