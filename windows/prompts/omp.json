@@ -49,21 +49,60 @@
       "alignment": "right",
       "segments": [
         {
-          "type": "node",
-          "style": "plain",
-          "foreground": "p:dim",
-          "background": "transparent",
-          "template": "node <p:green>v{{ .Major }}.{{ .Minor }}</> ",
-          "options": {
-            "fetch_package_manager": false
-          }
-        },
-        {
           "type": "bun",
           "style": "plain",
           "foreground": "p:dim",
           "background": "transparent",
           "template": "bun <p:orange>{{ .Major }}.{{ .Minor }}</> "
+        },
+        {
+          "type": "terraform",
+          "style": "plain",
+          "foreground": "p:dim",
+          "background": "transparent",
+          "template": "tf <p:violet>{{ .WorkspaceName }}</> "
+        },
+        {
+          "type": "flutter",
+          "style": "plain",
+          "foreground": "p:dim",
+          "background": "transparent",
+          "template": "flutter <p:blue>{{ .Major }}.{{ .Minor }}</> "
+        },
+        {
+          "type": "elixir",
+          "style": "plain",
+          "foreground": "p:dim",
+          "background": "transparent",
+          "template": "elixir <p:violet>{{ .Major }}.{{ .Minor }}</> "
+        },
+        {
+          "type": "go",
+          "style": "plain",
+          "foreground": "p:dim",
+          "background": "transparent",
+          "template": "go <p:cyan>{{ .Major }}.{{ .Minor }}</> "
+        },
+        {
+          "type": "rust",
+          "style": "plain",
+          "foreground": "p:dim",
+          "background": "transparent",
+          "template": "rust <p:orange>{{ .Major }}.{{ .Minor }}</> "
+        },
+        {
+          "type": "kotlin",
+          "style": "plain",
+          "foreground": "p:dim",
+          "background": "transparent",
+          "template": "kotlin <p:violet>{{ .Major }}.{{ .Minor }}</> "
+        },
+        {
+          "type": "lua",
+          "style": "plain",
+          "foreground": "p:dim",
+          "background": "transparent",
+          "template": "{{ if .Major }}lua <p:blue>{{ .Major }}.{{ .Minor }}</> {{ end }}"
         },
         {
           "type": "time",
