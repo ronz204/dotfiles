@@ -18,6 +18,5 @@ function Link($target, $source) {
   Write-Host "linked $target -> $source"
 }
 
-# WEZTERM_CONFIG_FILE points at ~\.wezterm.lua and takes priority over ~\.config\wezterm
 Link "$HOME\.wezterm.lua" "$repo\prompts\wezterm.lua"
 Link $PROFILE "$repo\powershell\profile.ps1"

@@ -1,0 +1,110 @@
+# Windows setup guide
+
+A friendly walkthrough to get this terminal setup running on a fresh Windows machine.
+
+You will end up with:
+
+- **WezTerm** as the terminal, using the Catppuccin Mocha theme.
+- **PowerShell 7** with a custom **oh-my-posh** prompt.
+- Nicer `ls`, `tree` and `cat` (through `eza` and `bat`).
+
+## 1. Install the tools
+
+### Scoop (package manager)
+
+Open a regular PowerShell window (no admin needed) and run:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+### Git and the extra buckets
+
+```powershell
+scoop install git
+scoop bucket add extras
+scoop bucket add nerd-fonts
+```
+
+### The apps
+
+```powershell
+scoop install pwsh eza bat
+scoop install extras/wezterm
+winget install JanDeDobbeleer.OhMyPosh
+```
+
+`pwsh` is PowerShell 7. The install script and the profile need it, so Windows PowerShell 5.1 (the blue one) will not work.
+
+### Nerd Font
+
+The prompt and `eza --icons` draw icons that only exist in a Nerd Font. WezTerm is set to `CaskaydiaCove Nerd Font`:
+
+```powershell
+scoop install nerd-fonts/CascadiaCode-NF
+```
+
+If the font does not show up in WezTerm afterwards, install it for all users from an **administrator** terminal with `scoop install -g nerd-fonts/CascadiaCode-NF`, then restart WezTerm.
+
+## 2. Get the dotfiles
+
+The profile expects the repo at `~\src\dotfiles`, so clone it there:
+
+```powershell
+git clone <your-repo-url> $HOME\src\dotfiles
+```
+
+If you clone it somewhere else, update `$dotfiles` in `windows\powershell\profile.ps1`.
+
+## 3. Enable symlinks
+
+The install script links files with symbolic links. Windows only allows that if you either:
+
+- turn on **Developer Mode** (Settings > System > For developers), or
+- run the script from an **administrator** terminal.
+
+## 4. Run the installer
+
+```powershell
+pwsh $HOME\src\dotfiles\windows\install.ps1
+```
+
+It links these files:
+
+| Repo file | Linked to |
+| --- | --- |
+| `windows\prompts\wezterm.lua` | `~\.wezterm.lua` |
+| `windows\powershell\profile.ps1` | `$PROFILE` (your PowerShell 7 profile) |
+
+Good to know:
+
+- It is safe to run again. Links that are already correct are left alone and print `ok`.
+- If a real file already exists at a target, it is renamed to `<name>.<timestamp>.bak` instead of being overwritten. Delete the backups when you no longer need them.
+- If something fails (for example symlinks are not allowed), the script stops with an error instead of continuing.
+
+## 5. Check it works
+
+Close every terminal and open WezTerm. You should see:
+
+- the colored oh-my-posh prompt with the current folder and git status,
+- icons next to files when you run `ls`,
+- syntax highlighting when you run `cat` on a file.
+
+## What lives where
+
+| Path | What it is |
+| --- | --- |
+| `windows\install.ps1` | Creates the symlinks |
+| `windows\powershell\profile.ps1` | Loads oh-my-posh and the aliases |
+| `windows\powershell\aliases.ps1` | `ls`, `tree`, `cat`, `..` and `...` |
+| `windows\prompts\omp.json` | oh-my-posh prompt theme |
+| `windows\prompts\wezterm.lua` | WezTerm settings |
+
+## Troubleshooting
+
+- **Icons show as boxes or question marks:** the Nerd Font is not installed, or your terminal is not using it. Check `config.font` in `wezterm.lua`.
+- **WezTerm ignores my config:** WezTerm reads the `WEZTERM_CONFIG_FILE` environment variable first. This setup assumes it points to `~\.wezterm.lua`, which is where the installer links the file. If you changed that variable, point it back there or remove it.
+- **`oh-my-posh` is not recognized:** open a new terminal so the updated `PATH` is loaded.
+- **Prompt shows warnings or ignores options:** the theme uses the newer oh-my-posh config format. Update with `winget upgrade JanDeDobbeleer.OhMyPosh`.
+- **"A required privilege is not held by the client":** symlinks are not allowed yet. See step 3.
