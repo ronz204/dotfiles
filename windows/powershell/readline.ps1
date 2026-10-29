@@ -25,7 +25,7 @@ Set-PSReadLineOption -Colors @{
     InlinePrediction   = ConvertTo-AnsiColor '#414868'
 }
 
-Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineKeyHandler -Key Tab -Function TabCompleteNext
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
