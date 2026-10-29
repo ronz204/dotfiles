@@ -4,9 +4,10 @@ A friendly walkthrough to get this terminal setup running on a fresh Windows mac
 
 You will end up with:
 
-- **WezTerm** as the terminal, using the Catppuccin Mocha theme.
+- **WezTerm** as the terminal, using a Tokyo Night style palette and flat tabs.
 - **PowerShell 7** with a custom **oh-my-posh** prompt.
 - Nicer `ls`, `tree` and `cat` (through `eza` and `bat`).
+- Syntax colors and history search in the command line (PSReadLine).
 
 ## 1. Install the tools
 
@@ -100,7 +101,7 @@ For each target it lists the existing backups, newest first, and asks for a numb
 
 Close every terminal and open WezTerm. You should see:
 
-- the colored oh-my-posh prompt with the current folder and git status,
+- a two-line oh-my-posh prompt with folder and git pills, plus node, bun and the time on the right,
 - icons next to files when you run `ls`,
 - syntax highlighting when you run `cat` on a file.
 
@@ -110,8 +111,9 @@ Close every terminal and open WezTerm. You should see:
 | --- | --- |
 | `windows\install.ps1` | Creates the symlinks |
 | `windows\restore.ps1` | Restores a backup made by the installer |
-| `windows\powershell\profile.ps1` | Loads oh-my-posh and the aliases |
+| `windows\powershell\profile.ps1` | Loads oh-my-posh, the aliases and the readline setup |
 | `windows\powershell\aliases.ps1` | `ls`, `tree`, `cat`, `..` and `...` |
+| `windows\powershell\readline.ps1` | PSReadLine colors, Tab menu and history search |
 | `windows\prompts\omp.json` | oh-my-posh prompt theme |
 | `windows\prompts\wezterm.lua` | WezTerm settings |
 
