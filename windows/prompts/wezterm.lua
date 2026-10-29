@@ -27,8 +27,14 @@ config.font = wezterm.font_with_fallback {
   'Segoe UI Symbol',
   'Segoe UI Emoji',
 }
+
 config.font_size = 12.0
 config.line_height = 1.1
+config.adjust_window_size_when_changing_font_size = false
+
+config.dpi= 96.0
+config.initial_cols = 128
+config.initial_rows = 28
 
 config.colors = {
   foreground = p.text,
