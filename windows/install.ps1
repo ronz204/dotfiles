@@ -11,7 +11,12 @@ function Link($target, $source) {
       if ("$($item.Target)" -eq $source) { Write-Host "ok     $target"; return }
       Remove-Item $target -Force
     }
-    else { Move-Item $target "$target.$(Get-Date -Format yyyyMMddHHmmss).bak" }
+    else {
+      Move-Item $target "$target.$(Get-Date -Format yyyyMMddHHmmss).bak"
+
+      Get-ChildItem (Split-Path $target) -Force -Filter "$(Split-Path $target -Leaf).*.bak" |
+        Sort-Object Name -Descending | Select-Object -Skip 2 | Remove-Item -Force
+    }
   }
 
   New-Item -ItemType SymbolicLink -Path $target -Target $source | Out-Null
