@@ -26,7 +26,13 @@ Set-PSReadLineOption -Colors @{
 }
 
 Set-PSReadLineKeyHandler -Key Tab -Function TabCompleteNext
-Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadLineKeyHandler -Key UpArrow -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchBackward()
+    [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
+}
+Set-PSReadLineKeyHandler -Key DownArrow -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchForward()
+    [Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
+}
 
 Remove-Item Function:\ConvertTo-AnsiColor
