@@ -23,7 +23,7 @@ config.max_fps = 120
 config.animation_fps = 60
 
 config.font = wezterm.font_with_fallback {
-  'CaskaydiaCove Nerd Font',
+  { family = 'JetBrainsMono Nerd Font', weight = 'DemiBold' },
   'Segoe UI Symbol',
   'Segoe UI Emoji',
 }
@@ -88,7 +88,7 @@ config.enable_scroll_bar = false
 config.default_cursor_style = 'SteadyBlock'
 
 config.window_frame = {
-  font = wezterm.font('CaskaydiaCove Nerd Font', { weight = 'Bold' }),
+  font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Bold' }),
   font_size = 11.0,
   active_titlebar_bg = p.base,
   inactive_titlebar_bg = p.base,

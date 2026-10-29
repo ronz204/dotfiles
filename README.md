@@ -23,7 +23,7 @@ Personal configuration for a fast, good-looking terminal.
 
 ## Quick start
 
-Needs PowerShell 7, WezTerm, oh-my-posh 31 or newer, `eza`, `bat` and the CaskaydiaCove Nerd Font. The guide covers installing them.
+Needs PowerShell 7, WezTerm, oh-my-posh 31 or newer, `eza`, `bat` and the JetBrainsMono Nerd Font. The guide covers installing them.
 
 ```powershell
 git clone <your-repo-url> $HOME\src\dotfiles

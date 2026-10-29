@@ -40,13 +40,13 @@ winget install JanDeDobbeleer.OhMyPosh
 
 ### Nerd Font
 
-The prompt and `eza --icons` draw icons that only exist in a Nerd Font. WezTerm is set to `CaskaydiaCove Nerd Font`:
+The prompt and `eza --icons` draw icons that only exist in a Nerd Font. WezTerm is set to `JetBrainsMono Nerd Font`:
 
 ```powershell
-scoop install nerd-fonts/CascadiaCode-NF
+scoop install nerd-fonts/JetBrainsMono-NF
 ```
 
-If the font does not show up in WezTerm afterwards, install it for all users from an **administrator** terminal with `scoop install -g nerd-fonts/CascadiaCode-NF`, then restart WezTerm.
+If the font does not show up in WezTerm afterwards, install it for all users from an **administrator** terminal with `scoop install -g nerd-fonts/JetBrainsMono-NF`, then restart WezTerm.
 
 ## 2. Get the dotfiles
 
