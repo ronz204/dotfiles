@@ -31,7 +31,7 @@ scoop bucket add nerd-fonts
 ### The apps
 
 ```powershell
-scoop install pwsh eza bat
+scoop install pwsh eza bat fastfetch
 scoop install extras/wezterm
 winget install JanDeDobbeleer.OhMyPosh
 ```
@@ -103,6 +103,7 @@ Close every terminal and open WezTerm. You should see:
 
 - a two-line oh-my-posh prompt with folder and git pills, plus node, bun and the time on the right,
 - icons next to files when you run `ls`,
+- a system summary card when you run `ff` (`fastfetch`, config in `custom/fastfetch`),
 - syntax highlighting when you run `cat` on a file.
 
 ## What lives where
