@@ -25,3 +25,4 @@ function Link($target, $source) {
 
 Link "$HOME\.wezterm.lua" "$repo\prompts\wezterm.lua"
 Link $PROFILE "$repo\powershell\profile.ps1"
+Link "$HOME\.configastfetch\config.jsonc" "$repo\customastfetch\config.jsonc"

@@ -1,7 +1,7 @@
 #Requires -Version 7
 $ErrorActionPreference = 'Stop'
 
-$targets = "$HOME\.wezterm.lua", $PROFILE
+$targets = "$HOME\.wezterm.lua", $PROFILE, "$HOME\.configastfetch\config.jsonc"
 
 function Get-Backups($target) {
   Get-ChildItem (Split-Path $target) -Force -Filter "$(Split-Path $target -Leaf).*.bak" |

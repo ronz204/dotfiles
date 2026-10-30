@@ -5,5 +5,7 @@ function tree { eza --icons --tree @args }
 Remove-Alias -Name cat -Force -ErrorAction SilentlyContinue
 function cat  { bat @args }
 
+function ff   { fastfetch @args }
+
 function ..  { Set-Location .. }
 function ... { Set-Location ../.. }
