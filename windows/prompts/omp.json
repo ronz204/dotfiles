@@ -23,7 +23,7 @@
           "background": "p:surface",
           "leading_diamond": "",
           "trailing_diamond": "",
-          "template": "  {{ path .Path .Location }} ",
+          "template": "  {{ path .Path .Location }} ",
           "options": {
             "style": "full",
             "folder_separator_icon": "/"
