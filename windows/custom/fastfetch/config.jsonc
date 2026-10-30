@@ -36,6 +36,11 @@
       "type": "custom",
       "format": "\u001b[38;2;86;95;137m └───────────────────────────────────────────────────────────┘"
     },
+    "break",
+    {
+      "type": "custom",
+      "format": "                  \u001b[3;38;2;187;154;247m\"Someday I'll get to the moon\"\u001b[0m"
+    },
     "break"
   ]
 }
